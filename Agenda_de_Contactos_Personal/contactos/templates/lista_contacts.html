@@ -1,0 +1,13 @@
+<h1>Agenda de Contactos</h1>
+<form method="get">
+    <input type="text" name="q" placeholder="Buscar por nombre o correo">
+    <button type="submit">Buscar</button>
+</form>
+<a href="{% url 'agregar_contacto' %}">Agregar nuevo contacto</a>
+<ul>
+    {% for contacto in contactos %}
+        <li><strong>{{ contacto.nombre }}</strong> - {{ contacto.correo }}</li>
+    {% empty %}
+        <li>No hay contactos.</li>
+    {% endfor %}
+</ul>
