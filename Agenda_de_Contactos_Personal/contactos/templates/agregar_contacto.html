@@ -1,7 +1,0 @@
-<h1>Agregar Contacto</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
-<a href="{% url 'lista_contactos' %}">Volver a la lista</a>
