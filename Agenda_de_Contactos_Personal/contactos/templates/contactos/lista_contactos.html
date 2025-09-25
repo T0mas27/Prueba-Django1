@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- Título principal -->
+    <!--titulo principal-->
     <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Agenda de Contactos</h1>
 
     <!-- Formulario de búsqueda con espacio entre elementos y responsive -->
@@ -13,6 +13,7 @@
             value="{{ request.GET.q|default:'' }}"
             class="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
         >
+        <!--boton de buscar-->
         <button
             type="submit"
             class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer"
@@ -21,7 +22,7 @@
         </button>
     </form>
 
-    <!-- Botón para agregar contacto con gradiente emerald -->
+    <!--Botón para agregar contacto-->
     <div class="text-center mb-6">
         <a
             href="{% url 'agregar_contacto' %}"
@@ -31,7 +32,7 @@
         </a>
     </div>
 
-    <!-- Contenedor con fondo blanco, borde redondeado, sombra y borde sutil -->
+    <!-- Contenedor con fondo blanco, borde redondeado, sombra y borde-->
     <div class="bg-white rounded-lg shadow border border-gray-200 p-6 max-w-3xl mx-auto">
         <ul class="divide-y divide-gray-200">
             {% for contacto in contactos %}
@@ -53,7 +54,7 @@
                             ✏️
                         </a>
 
-                        <!-- Form para borrar contacto con confirmación -->
+                        <!-- Form para borrar contacto con confirmacion -->
                         <form
                             method="post"
                             action="{% url 'borrar_contacto' contacto.id %}"

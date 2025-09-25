@@ -1,6 +1,7 @@
-{% extends "base.html" %}
-{% load widget_tweaks %}
+{% extends "base.html" %} <!--llamado a la base de html-->
+{% load widget_tweaks %} <!--llamado de los token-->
 
+<!--boton para agregar y editar contacto-->
 {% block content %}
     <h1 class="text-3xl font-bold mb-6 text-center text-emerald-600">
         {% if contacto %}
@@ -11,8 +12,9 @@
     </h1>
 
     <form method="post" class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-6 border border-gray-300">
-        {% csrf_token %}
+        {% csrf_token %} <!--token csrf-->
 
+        <!--estructura y style de la pagina-->
         {% for field in form %}
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">
@@ -25,6 +27,7 @@
             </div>
         {% endfor %}
 
+        <!--boton para guardar-->
         <button
             type="submit"
             class="w-full bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-semibold py-2 px-4 rounded-full shadow-lg hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300"
@@ -33,6 +36,7 @@
         </button>
     </form>
 
+    <!--boton para volver al inicio-->
     <div class="text-center mt-6">
         <a
             href="{% url 'lista_contactos' %}"
