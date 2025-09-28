@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}Agenda de Contactos{% endblock %}</title>
 
-    <!-- Tailwind CDN -->
+    <!-- Tailwind  -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     {% block extra_head %}{% endblock %}
 </head>
 <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
 
-    <!-- Header global -->
+    <!-- Header general -->
     <header class="bg-blue-700 text-white p-4 shadow">
         <div class="container mx-auto">
             <a href="{% url 'lista_contactos' %}" class="text-2xl font-semibold hover:underline">
@@ -26,7 +26,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer global -->
+    <!-- Footer general-->
     <footer class="bg-blue-700 text-white p-4 text-center">
         &copy; 2025 Agenda App. Todos los derechos reservados.
     </footer>

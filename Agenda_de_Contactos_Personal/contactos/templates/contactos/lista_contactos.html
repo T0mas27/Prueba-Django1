@@ -4,7 +4,7 @@
     <!--titulo principal-->
     <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Agenda de Contactos</h1>
 
-    <!-- Formulario de búsqueda con espacio entre elementos y responsive -->
+    <!-- Formulario de búsqueda -->
     <form method="get" class="mb-6 flex flex-col sm:flex-row gap-4 items-center justify-center max-w-2xl mx-auto">
         <input
             type="text"
@@ -32,7 +32,6 @@
         </a>
     </div>
 
-    <!-- Contenedor con fondo blanco, borde redondeado, sombra y borde-->
     <div class="bg-white rounded-lg shadow border border-gray-200 p-6 max-w-3xl mx-auto">
         <ul class="divide-y divide-gray-200">
             {% for contacto in contactos %}
@@ -43,7 +42,6 @@
                         <p class="text-sm text-gray-600">{{ contacto.correo }}</p>
                     </div>
 
-                    <!-- Botones de acción con espacio entre ellos -->
                     <div class="flex gap-4 items-center">
                         <!-- Botón Editar -->
                         <a
