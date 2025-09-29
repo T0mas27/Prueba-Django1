@@ -14,7 +14,7 @@
     <form method="post" class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-6 border border-gray-300">
         {% csrf_token %} <!--token csrf-->
 
-        <!--estructura y style de la pagina-->
+        <!--muestra los campos del fomulario y notifica si hay un error-->
         {% for field in form %}
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">

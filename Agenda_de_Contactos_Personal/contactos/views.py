@@ -8,12 +8,12 @@ def lista_contactos(request):
     Vista para mostrar la lista de contactos.
     Permite buscar contactos por nombre o correo usando el parámetro 'q' en GET.
     """
-    query = request.GET.get('q')  # Obtener término de búsqueda (si existe)
+    query = request.GET.get('q')  #Obtener término de buscar
     if query:
-        # Filtrar contactos que contengan el término en nombre o correo (case-insensitive)
+        # Filtra contactos que contengan el término en nombre o correo
         contactos = Contacto.objects.filter(Q(nombre__icontains=query) | Q(correo__icontains=query))
     else:
-        # Si no hay búsqueda, mostrar todos los contactos
+        # Si no hay búsqueda muestra todos los contactos
         contactos = Contacto.objects.all()
     
     # Renderizar la plantilla con la lista de contactos
@@ -26,14 +26,14 @@ def agregar_contacto(request):
     Muestra un formulario vacío y procesa el formulario cuando se envía (POST).
     """
     if request.method == 'POST':
-        form = ContactoForm(request.POST)  # Crear formulario con datos enviados
+        form = ContactoForm(request.POST)  # Crea formulario con datos enviados
         if form.is_valid():
             form.save()  # Guardar nuevo contacto en la base de datos
             return redirect('lista_contactos')  # Redirigir a la lista de contactos
     else:
         form = ContactoForm()  # Crear formulario vacío para mostrar
     
-    # Renderizar la plantilla con el formulario
+    # Renderizar la pagina con el formulario
     return render(request, 'contactos/agregar_contacto.html', {'form': form})
 
 
@@ -53,7 +53,7 @@ def editar_contacto(request, id):
             form.save()  # Guardar los cambios en la base de datos
             return redirect('lista_contactos')  # Volver a la lista de contactos
     else:
-        # Mostrar formulario con datos actuales del contacto
+        # muestra el formulario con los datos actuales del contacto
         form = ContactoForm(instance=contacto)
 
     # Renderizar la misma plantilla que agregar, pero pasando el contacto para indicar edición
@@ -72,5 +72,5 @@ def borrar_contacto(request, id):
         contacto.delete()  # Borrar el contacto de la base de datos
         return redirect('lista_contactos')
 
-    # Si la solicitud no es POST, redirigimos igual a la lista (o podrías mostrar confirmación)
+    # Si la solicitud no es POST, redirige igual a la lista 
     return redirect('lista_contactos')
